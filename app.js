@@ -157,6 +157,15 @@ cron.schedule("0 */1 * * *", function () {
   client.sendMessage(number, message);
 });
 
+// cron job absen datang
+cron.schedule("30 8 * * *", function () {
+  const message = "Hi Heri,\nJangan lupa absen masuk yaa\nSemangat bekerja";
+  const number = "6287775477657@c.us";
+
+  console.log("Hi Heri,\nSelamat istirhat");
+  client.sendMessage(number, message);
+});
+
 // cron job istirahat
 cron.schedule("0 12 * * *", function () {
   const message = "Hi Heri,\nSelamat istirahat";
@@ -177,7 +186,7 @@ cron.schedule("0 13 * * *", function () {
 
 // cron job absen pulang
 cron.schedule("30 17 * * *", function () {
-  const message = "Hi Heri,\nJangan lupa absen pulang ya";
+  const message = "Hi Heri,\nJangan lupa absen pulang yaa\nHati hati di jalan";
   const number = "6287775477657@c.us";
 
   console.log("Hi Heri,\nJangan lupa absen pulang ya");
