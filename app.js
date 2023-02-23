@@ -8,6 +8,7 @@ const fs = require("fs");
 const { phoneNumberFormatter } = require("./helpers/formatter");
 const fileUpload = require("express-fileupload");
 const cron = require("node-cron");
+const port = process.env.PORT || 8000;
 
 const app = express();
 const server = http.createServer(app);
@@ -183,6 +184,6 @@ cron.schedule("30 17 * * *", function () {
   client.sendMessage(number, message);
 });
 
-server.listen(8000, function () {
-  console.log("App running on *:" + 8000);
+server.listen(port, function () {
+  console.log("App running on *:" + port);
 });
