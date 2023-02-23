@@ -149,7 +149,7 @@ app.post("/send-media", (req, res) => {
 
 // cron job 1 jam
 cron.schedule("0 */1 * * *", function () {
-  const message = "Pesan ini akan terkirim setiap 15 menit sekali";
+  const message = "Pesan ini akan terkirim setiap 1 jam sekali";
   const number = "6287775477657@c.us";
 
   console.log("running a task every 1 hour");
@@ -157,29 +157,29 @@ cron.schedule("0 */1 * * *", function () {
 });
 
 // cron job istirahat
-cron.schedule("* 12 * * *", function () {
-  const message = "Hi Heri, \nSelamat istirhat";
+cron.schedule("0 12 * * *", function () {
+  const message = "Hi Heri,\nSelamat istirahat";
   const number = "6287775477657@c.us";
 
-  console.log("Hi Heri, \nSelamat istirhat");
+  console.log("Hi Heri,\nSelamat istirhat");
   client.sendMessage(number, message);
 });
 
 // cron job kerja kembali
-cron.schedule("* 13 * * *", function () {
-  const message = "Hi Heri, \nSelamat bekerja kembali";
+cron.schedule("0 13 * * *", function () {
+  const message = "Hi Heri,\nSelamat bekerja kembali";
   const number = "6287775477657@c.us";
 
-  console.log("Hi Heri, \nSelamat bekerja kembali");
+  console.log("Hi Heri,\nSelamat bekerja kembali");
   client.sendMessage(number, message);
 });
 
 // cron job absen pulang
 cron.schedule("30 17 * * *", function () {
-  const message = "Hi Heri, \nJangan lupa absen pulang ya";
+  const message = "Hi Heri,\nJangan lupa absen pulang ya";
   const number = "6287775477657@c.us";
 
-  console.log("Hi Heri, \nJangan lupa absen pulang ya");
+  console.log("Hi Heri,\nJangan lupa absen pulang ya");
   client.sendMessage(number, message);
 });
 
