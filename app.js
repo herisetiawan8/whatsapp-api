@@ -7,6 +7,7 @@ const http = require("http");
 const fs = require("fs");
 const { phoneNumberFormatter } = require("./helpers/formatter");
 const fileUpload = require("express-fileupload");
+const cron = require("node-cron");
 
 const app = express();
 const server = http.createServer(app);
@@ -44,6 +45,8 @@ client.on("message", (msg) => {
     msg.reply("pong");
   } else if (msg.body == "good morning") {
     msg.reply("selamat pagi");
+  } else if (msg.body == "test") {
+    msg.reply("oit, masih on bot nya");
   }
 });
 
@@ -142,6 +145,42 @@ app.post("/send-media", (req, res) => {
         response: err,
       });
     });
+});
+
+// cron job 1 jam
+cron.schedule("0 */1 * * *", function () {
+  const message = "Pesan ini akan terkirim setiap 15 menit sekali";
+  const number = "6287775477657@c.us";
+
+  console.log("running a task every 1 hour");
+  client.sendMessage(number, message);
+});
+
+// cron job istirahat
+cron.schedule("* 12 * * *", function () {
+  const message = "Hi Heri, \nSelamat istirhat";
+  const number = "6287775477657@c.us";
+
+  console.log("Hi Heri, \nSelamat istirhat");
+  client.sendMessage(number, message);
+});
+
+// cron job kerja kembali
+cron.schedule("* 13 * * *", function () {
+  const message = "Hi Heri, \nSelamat bekerja kembali";
+  const number = "6287775477657@c.us";
+
+  console.log("Hi Heri, \nSelamat bekerja kembali");
+  client.sendMessage(number, message);
+});
+
+// cron job absen pulang
+cron.schedule("30 17 * * *", function () {
+  const message = "Hi Heri, \nJangan lupa absen pulang ya";
+  const number = "6287775477657@c.us";
+
+  console.log("Hi Heri, \nJangan lupa absen pulang ya");
+  client.sendMessage(number, message);
 });
 
 server.listen(8000, function () {
