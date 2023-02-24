@@ -149,49 +149,144 @@ app.post("/send-media", (req, res) => {
 });
 
 // cron job 1 jam
-cron.schedule("0 */1 * * *", function () {
-  const message = "Pesan ini akan terkirim setiap 1 jam sekali";
-  const number = "6287775477657@c.us";
+cron.schedule(
+  "0 */1 * * Monday,Tuesday,Wednesday,Thursday,Friday",
+  function () {
+    const message = "Pesan ini akan terkirim setiap 1 jam sekali";
+    const number = "6287775477657@c.us";
 
-  console.log("running a task every 1 hour");
-  client.sendMessage(number, message);
-});
+    // console.log("running a task every 1 hour");
+    client.sendMessage(number, message);
+  },
+  {
+    timezone: "Asia/Jakarta",
+  }
+);
 
 // cron job absen datang
-cron.schedule("30 8 * * *", function () {
-  const message = "Hi Heri,\nJangan lupa absen masuk yaa\nSemangat bekerja";
-  const number = "6287775477657@c.us";
+cron.schedule(
+  "30 8 * * Monday,Tuesday,Wednesday,Thursday,Friday",
+  function () {
+    const message =
+      "Ohayogozaimasu min'na-san,\nJangan lupa absen masuk yaa\nSemangat bekerja";
+    const number = "6287775477657@c.us";
 
-  console.log("Hi Heri,\nSelamat istirhat");
-  client.sendMessage(number, message);
-});
+    client.sendMessage(number, message);
+  },
+  {
+    timezone: "Asia/Jakarta",
+  }
+);
+
+cron.schedule(
+  "10 7 * * Monday,Tuesday,Wednesday,Thursday,Friday",
+  function () {
+    const message =
+      "Ohayogozaimasu Annisa Rifa,\nJangan lupa absen masuk yaa\nSemangat bekerja";
+    const number = "6285883060094@c.us";
+
+    client.sendMessage(number, message);
+  },
+  {
+    timezone: "Asia/Jakarta",
+  }
+);
 
 // cron job istirahat
-cron.schedule("0 12 * * *", function () {
-  const message = "Hi Heri,\nSelamat istirahat";
-  const number = "6287775477657@c.us";
+cron.schedule(
+  "0 12 * * Monday,Tuesday,Wednesday,Thursday",
+  function () {
+    const message = "Hi Heri,\nSelamat istirahat, jangan lupa makan yaa";
+    const number = "6287775477657@c.us";
 
-  console.log("Hi Heri,\nSelamat istirhat");
-  client.sendMessage(number, message);
-});
+    client.sendMessage(number, message);
+  },
+  {
+    timezone: "Asia/Jakarta",
+  }
+);
+
+cron.schedule(
+  "0 12 * * Monday,Tuesday,Wednesday,Thursday,Friday",
+  function () {
+    const message = "Hi Annisa Rifa,\nSelamat istirahat, jangan lupa makan yaa";
+    const number = "6285883060094@c.us";
+
+    client.sendMessage(number, message);
+  },
+  {
+    timezone: "Asia/Jakarta",
+  }
+);
+
+// cron job istirahat
+cron.schedule(
+  "30 11 * * Friday",
+  function () {
+    const message = "Hi Heri,\nSelamat istirahat";
+    const number = "6287775477657@c.us";
+
+    client.sendMessage(number, message);
+  },
+  {
+    timezone: "Asia/Jakarta",
+  }
+);
 
 // cron job kerja kembali
-cron.schedule("0 13 * * *", function () {
-  const message = "Hi Heri,\nSelamat bekerja kembali";
-  const number = "6287775477657@c.us";
+cron.schedule(
+  "0 13 * * Monday,Tuesday,Wednesday,Thursday,Friday",
+  function () {
+    const message = "Hi Heri,\nSelamat bekerja kembali";
+    const number = "6287775477657@c.us";
 
-  console.log("Hi Heri,\nSelamat bekerja kembali");
-  client.sendMessage(number, message);
-});
+    console.log("Hi Heri,\nSelamat bekerja kembali");
+    client.sendMessage(number, message);
+  },
+  {
+    timezone: "Asia/Jakarta",
+  }
+);
+
+cron.schedule(
+  "0 13 * * Monday,Tuesday,Wednesday,Thursday,Friday",
+  function () {
+    const message = "Hi Annisa Rifa,\nSelamat bekerja kembali";
+    const number = "6285883060094@c.us";
+
+    client.sendMessage(number, message);
+  },
+  {
+    timezone: "Asia/Jakarta",
+  }
+);
 
 // cron job absen pulang
-cron.schedule("30 17 * * *", function () {
-  const message = "Hi Heri,\nJangan lupa absen pulang yaa\nHati hati di jalan";
-  const number = "6287775477657@c.us";
+cron.schedule(
+  "30 17 * * Monday,Tuesday,Wednesday,Thursday,Friday",
+  function () {
+    const message =
+      "Konnichiwa minnasan,\nJangan lupa absen pulang yaa\nHati hati di jalan";
+    const number = "6287775477657@c.us";
+    client.sendMessage(number, message);
+  },
+  {
+    timezone: "Asia/Jakarta",
+  }
+);
 
-  console.log("Hi Heri,\nJangan lupa absen pulang ya");
-  client.sendMessage(number, message);
-});
+cron.schedule(
+  "30 16 * * Monday,Tuesday,Wednesday,Thursday,Friday",
+  function () {
+    const message =
+      "Konnichiwa Annisa Rifa,\nJangan lupa absen pulang yaa\nHati hati di jalan";
+    const number = "6285883060094@c.us";
+    client.sendMessage(number, message);
+  },
+  {
+    timezone: "Asia/Jakarta",
+  }
+);
 
 server.listen(port, function () {
   console.log("App running on *:" + port);
